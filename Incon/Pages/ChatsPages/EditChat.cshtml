@@ -1,0 +1,35 @@
+﻿@page
+@model Incon.Pages.ChatsPages.EditModel
+
+@{
+    ViewData["Title"] = "Изменение названия чата";
+}
+
+<h1>Изменение названия</h1>
+
+<h4>Чат</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Chat.Chatid" />
+            <div class="form-group">
+                <label asp-for="Chat.Name" class="control-label">Название</label>
+                <input asp-for="Chat.Name" class="form-control" />
+                <span asp-validation-for="Chat.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="/ChatsPages/IndexChat">Назад к чатам</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

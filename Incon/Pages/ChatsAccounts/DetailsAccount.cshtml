@@ -1,0 +1,129 @@
+﻿@page
+@model Incon.Pages.ChatsAccounts.DetailsAccountModel
+
+@{
+    ViewData["Title"] = "Информация о пользователе";
+}
+
+<h1>Информация о пользователе</h1>
+
+<div>
+    <h4></h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Имя
+        </dt>
+
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Account.Name)
+        </dd>
+        
+        <dt class="col-sm-2">
+            Фамилия
+        </dt>
+        
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Account.Surname)
+        </dd>
+        
+        <dt class="col-sm-2">
+            Отчетсво
+        </dt>
+        
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Account.Patronymic)
+        </dd>
+        
+        <dt class="col-sm-2">
+            Ид
+        </dt>
+        
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Account.Visid)
+        </dd>
+        
+        <dt class="col-sm-2">
+            Дата рождения
+        </dt>
+        
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Account.Dateofbirthday)
+        </dd>
+        
+        <dt class="col-sm-2">
+            Дата регистрации аккаунтта
+        </dt>
+        
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Account.Dateofdesign)
+        </dd>
+        
+        <dt class="col-sm-2">
+            Телефон
+        </dt>
+
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Account.Phone)
+        </dd>
+        
+        <dt class="col-sm-2">
+            Имейл
+        </dt>
+        
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Account.Email)
+        </dd>
+        
+        <dt class ="col-sm-2">
+            Код страны
+        </dt>
+        
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Account.Country)
+        </dd>
+        
+        <dt class="col-sm-2">
+            Регион
+        </dt>
+        
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Account.Region)
+        </dd>
+        
+        <dt class="col-sm-2">
+            Город
+        </dt>
+        
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Account.City)
+        </dd>
+        
+        <dt class="col-sm-2">
+            Улица
+        </dt>
+        
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Account.Street)
+        </dd>
+        
+        <dt class="col-sm-2">
+            Дом
+        </dt>
+        
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Account.Housenum)
+        </dd>
+        
+        <dt class="col-sm-2">
+            Квартира
+        </dt>
+        
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Account.Apartmentnum)
+        </dd>
+    </dl>
+</div>
+<div>
+            <a href="@Url.Page("/ChatsAccounts/ListChatsAccount","",new{id=Pages.GlobalSettings.GlobalChat.Chatid})">Назад к списку участников</a>
+</div>

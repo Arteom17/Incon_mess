@@ -1,0 +1,35 @@
+﻿@page
+@model Incon.Pages.Messages.EditMessage
+
+@{
+    ViewData["Title"] = "Редактирование сообщения";
+}
+
+<h1>Редактирование</h1>
+
+<h4>Сообщения</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Communicationobj.Communicationobjid" />
+            <div class="form-group">
+                <label asp-for="Communicationobj.Text" class="control-label">Текст сообщения</label>
+                <input asp-for="Communicationobj.Text" class="form-control" />
+                <span asp-validation-for="Communicationobj.Text" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a href="@Url.Page("/ChatsPages/DetailsChat","", new{id=Pages.GlobalSettings.GlobalChat.Chatid})">Назад к списку сообщений</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

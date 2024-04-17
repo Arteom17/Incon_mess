@@ -1,0 +1,19 @@
+﻿Scaffold-DbContext "Host=localhost;Database=incon;Username=postgres;Password=1234;Persist Security Info=True" -provider Npgsql.EntityFrameworkCore.PostgreSQL -OutputDir Models -f -Context InconContext
+
+useful string html                                 
+
+<a asp-page="/Messages/EditMessage" asp-route-id="@m.commid">Редактировать |</a> 
+
+<a class="nav-link text-dark" href="@Url.Page("/Index", "Out", new {})">Выход</a>
+
+return RedirectToPage("OrderDetails", new { orderId = orderId });
+
+
+ доб           <a href="@Url.Page("/ChatsAccounts/AddUser","",new{id=Classes.GlobalSettings.GlobalChat.Chatid})">Назад к добавлению участника</a>
+
+
+чат             <a href="@Url.Page("/ChatsPages/DetailsChat","", new{id=Classes.GlobalSettings.GlobalChat.Chatid})">Назад к чату</a>
+
+ @addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+
+ C:\Users\SB2\OneDrive\Документы\0 Exercises\0бд курсач 5 сем\proga\Incon\Incon\Pages\_ViewImports.cshtml

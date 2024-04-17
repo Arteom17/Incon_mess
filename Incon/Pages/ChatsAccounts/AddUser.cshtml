@@ -1,0 +1,110 @@
+﻿@page
+@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+@model Incon.Pages.ChatsAccounts.AddUserModel
+@using Incon.Pages.ChatsAccounts
+
+@{
+    ViewData["Title"] = "Добавление участника";
+}
+
+<h1>Добавление участника</h1>
+<form method="get">
+    <p>
+         Поиск: <input type="text" asp-for="SearchString"/>
+        <input type="submit" value="Искать"/> 
+    </p>
+</form>
+<a href="@Url.Page("/ChatsAccounts/AddUser",new{searchString = "", sortString = Model.SortString, sortFilter=Model.SortFilter})">
+    Сбросить поиск | 
+</a>
+<a href="@Url.Page("/ChatsAccounts/AddUser",new{searchString = Model.SearchString, sortString = "", sortFilter=Model.SortFilter})">
+    Сбросить сортировку | 
+</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a href="@Url.Page("/ChatsAccounts/AddUser",new{searchString = Model.SearchString, sortString = "name", sortFilter=(Model.SortFilter=="asc" && Model.SortString=="name")?"desc":"asc"})">
+                @Html.DisplayNameFor(model => model.Account[0].Name)
+                    </a>   
+            </th>
+            <th>
+                <a href="@Url.Page("/ChatsAccounts/AddUser",new{searchString = Model.SearchString, sortString = "surname", sortFilter=(Model.SortFilter=="asc" && Model.SortString=="surname")?"desc":"asc"})">
+                @Html.DisplayNameFor(model => model.Account[0].Surname)
+                </a>
+            </th>
+            <th>
+                <a href="@Url.Page("/ChatsAccounts/AddUser",new{searchString = Model.SearchString, sortString = "patronymic", sortFilter=(Model.SortFilter=="asc" && Model.SortString=="patronymic")?"desc":"asc"})">
+                @Html.DisplayNameFor(model => model.Account[0].Patronymic)
+                </a>
+            </th>
+            <th>
+                <a href="@Url.Page("/ChatsAccounts/AddUser",new{searchString = Model.SearchString, sortString = "visid", sortFilter=(Model.SortFilter=="asc" && Model.SortString=="visid")?"desc":"asc"})">
+                @Html.DisplayNameFor(model => model.Account[0].Visid)
+                </a>
+            </th>
+            <th>
+                <a href="@Url.Page("/ChatsAccounts/AddUser",new{searchString = Model.SearchString, sortString = "country", sortFilter=(Model.SortFilter=="asc" && Model.SortString=="country")?"desc":"asc"})">
+                @Html.DisplayNameFor(model => model.Account[0].Country)
+                </a>
+            </th>
+            <th>
+                <a href="@Url.Page("/ChatsAccounts/AddUser",new{searchString = Model.SearchString, sortString = "region", sortFilter=(Model.SortFilter=="asc" && Model.SortString=="region")?"desc":"asc"})">
+                @Html.DisplayNameFor(model => model.Account[0].Region)
+                </a>
+            </th>
+            <th>
+                <a href="@Url.Page("/ChatsAccounts/AddUser",new{searchString = Model.SearchString, sortString = "city", sortFilter=(Model.SortFilter=="asc" && Model.SortString=="city")?"desc":"asc"})">
+                @Html.DisplayNameFor(model => model.Account[0].City)
+                </a>
+            </th>
+            <th>
+                <a href="@Url.Page("/ChatsAccounts/AddUser",new{searchString = Model.SearchString, sortString = "phone", sortFilter=(Model.SortFilter=="asc" && Model.SortString=="phone")?"desc":"asc"})">
+                @Html.DisplayNameFor(model => model.Account[0].Phone)
+                </a>
+            </th>
+            <th>
+                <a href="@Url.Page("/ChatsAccounts/AddUser",new{searchString = Model.SearchString, sortString = "email", sortFilter=(Model.SortFilter=="asc")?"desc":"asc"})">
+                @Html.DisplayNameFor(model => model.Account[0].Email)
+                </a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Account) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patronymic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Visid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Region)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                    <a href ="@Url.Page("/ChatsAccounts/AddUser","Choose", new { id = item.Accountid})">Добавить пользователя</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

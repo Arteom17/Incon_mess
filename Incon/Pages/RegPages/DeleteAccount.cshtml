@@ -1,0 +1,35 @@
+﻿@page
+@model Incon.Pages.RegPages.DeleteAccountModel
+
+@{
+    ViewData["Title"] = "Удаление аккаунта";
+}
+
+<h1>Удаление аккаунта</h1>
+
+<h3>Вы уверены что хотите удалить аккаунт?</h3>
+<div>
+    <h4>Аккаунт</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+           Имя
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Account.Name)
+        </dd>
+
+        <dt class="col-sm-2">
+        ИД
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Account.Visid)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Account.Accountid" />
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a asp-page="/LoginPages/ChooseAccount">Вернуться к выбору аккаунта</a>
+    </form>
+</div>

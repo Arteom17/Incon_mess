@@ -1,0 +1,99 @@
+﻿@page
+@model Incon.Pages.RegPages.EditAccountModel
+
+@{
+    ViewData["Title"] = "Редактирование аккаунта";
+}
+
+<h1>Редактирование данных</h1>
+
+<h4>Аккаунта</h4>
+<hr />
+<h4 style="color:red">
+    @Html.Raw(EditAccountModel.BMessage)
+</h4>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div class="form-group">
+                <label asp-for="Account.Name" class="control-label">Имя</label>
+                <input asp-for="Account.Name" class="form-control" />
+                <span asp-validation-for="Account.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Account.Surname" class="control-label">Фамилия</label>
+                <input asp-for="Account.Surname" class="form-control" />
+                <span asp-validation-for="Account.Surname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Account.Patronymic" class="control-label">Отчество</label>
+                <input asp-for="Account.Patronymic" class="form-control" />
+                <span asp-validation-for="Account.Patronymic" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Account.Visid" class="control-label">Видимый идентификатор</label>
+                <input asp-for="Account.Visid" class="form-control" />
+                <span asp-validation-for="Account.Visid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Account.Dateof" class="control-label">Дата рождения</label>
+                <input asp-for="Account.Dateof" class="form-control" />
+                <span asp-validation-for="Account.Dateof" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Account.Country" class="control-label">Код страны</label>
+                <input asp-for="Account.Country" class="form-control" />
+                <span asp-validation-for="Account.Country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Account.Region" class="control-label">Регион</label>
+                <input asp-for="Account.Region" class="form-control" />
+                <span asp-validation-for="Account.Region" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Account.City" class="control-label">Город</label>
+                <input asp-for="Account.City" class="form-control" />
+                <span asp-validation-for="Account.City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Account.Street" class="control-label">Улица</label>
+                <input asp-for="Account.Street" class="form-control" />
+                <span asp-validation-for="Account.Street" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Account.Housenum" class="control-label">Дом</label>
+                <input asp-for="Account.Housenum" class="form-control" />
+                <span asp-validation-for="Account.Housenum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Account.Apartmentnum" class="control-label">Квартира</label>
+                <input asp-for="Account.Apartmentnum" class="form-control" />
+                <span asp-validation-for="Account.Apartmentnum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Account.Phone" class="control-label">Телефон</label>
+                <input asp-for="Account.Phone" class="form-control" />
+                <span asp-validation-for="Account.Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Account.Email" class="control-label">Имейл</label>
+                <input asp-for="Account.Email" class="form-control" />
+                <span asp-validation-for="Account.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="/RegPages/DeleteAccount">Удаление Аккаунта</a>
+</div>
+<div>
+    <a asp-page="/LoginPages/ChooseAccount">Возврат к выбору аккаунта</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

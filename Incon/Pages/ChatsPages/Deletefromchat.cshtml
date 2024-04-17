@@ -1,0 +1,35 @@
+﻿@page
+@model DeleteFromChat
+
+@{
+    ViewData["Title"] = "Покидание чата";
+}
+
+<h1>Покидание</h1>
+
+<h3>Вы уверены, что хотите покинуть чат?</h3>
+<div>
+    <h4>Чат</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Дата добавления
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Chatsaccount.Dateofadd)
+        </dd>
+        <dt class="col-sm-2">
+            Название чата
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Chat.Name)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Chatsaccount.Chatidref" />
+        <input type="hidden" asp-for="Chatsaccount.Accountidref" />
+        <input type="submit" value="Покинуть" class="btn btn-danger" /> |
+        <a asp-page="/ChatsPages/IndexChat">Назад к чатам</a>
+    </form>
+</div>

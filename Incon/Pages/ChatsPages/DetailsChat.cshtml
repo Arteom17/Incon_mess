@@ -1,0 +1,94 @@
+﻿@page
+@model Incon.Pages.ChatsPages.DetailsChat
+
+@{
+    ViewData["Title"] = "Чат";
+}
+
+<div>
+    <a asp-page="/Messages/CreateMessage" asp-route-id="@Model.Chat?.Chatid">Создать новое сообщение</a> |
+    <a asp-page="/ChatsPages/IndexChat">Вернуться к списку чатов</a> |
+    <a href="@Url.Page("/ChatsAccounts/ListChatsAccount",new {id = Pages.GlobalSettings.GlobalChat.Chatid})">Перейти к списку участников</a>
+</div>
+<h1>Просмотр сообщений чата</h1>
+
+<div>
+    <h4>@Html.DisplayFor(model=>model.Chat.Name)</h4>
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <dh class="col-sm-2">
+                    Имя автора |
+                </dh>
+                <dh class="col-sm-2">
+                    Ид автора | 
+                </dh>
+                <dh class="col-sm-2">
+                    Текст сообщения | 
+                </dh>
+                <dh class="col-sm-2">
+                    Время отправки | 
+                </dh>
+                <dh>
+                </dh>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var m in DetailsChat.Messs)
+            {
+                <tr>
+                    @if (m.accid != 0)
+                    {
+                        <td>
+                        @Html.Raw(m.name) |
+                        </td>
+                        
+                        <td>
+                        @Html.Raw(m.vid) |
+                        </td>
+                        
+                        <td>
+                        @Html.Raw(m.text) |
+                        </td>
+                        
+                        <td>
+                        @Html.Raw(m.dt) |
+                        </td>
+                        <td>
+                            @if(Pages.GlobalSettings.Globalaccount.Accountid==m.accid)
+                            {
+                                <a href="@Url.Page("/Messages/EditMessage","", new {id=m.commid})">Редактировать |</a>
+                                <a href="@Url.Page("/Messages/DeleteMessage","", new {id=m.commid})">Удалить </a>
+                            }
+                            else
+                            {
+                                @* <a href="@Url.Page("/ChatsAccounts/DetailsAccount","", new {id=m.accid})">Об авторе </a> *@
+                            }
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            Удаленный пользователь |
+                        </td>
+                        <td>
+                            |
+                        </td>
+                        <td>
+                            @Html.Raw(m.text) |
+                        </td>
+
+                        <td>
+                            @Html.Raw(m.dt) |
+                        </td>
+                        <td> 
+                            |
+                        </td>
+                    }
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

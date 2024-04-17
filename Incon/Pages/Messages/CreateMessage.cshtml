@@ -1,0 +1,34 @@
+﻿@page
+@model Incon.Pages.Messages.CreateMessage
+
+@{
+    ViewData["Title"] = "Создание сообщения";
+}
+
+<h1>Создание</h1>
+
+<h4>Сообщения</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Communicationobj.Text" class="control-label">Тест сообщения</label>
+                <input asp-for="Communicationobj.Text" class="form-control" />
+                <span asp-validation-for="Communicationobj.Text" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Создать" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="/ChatsPages/DetailsChat" asp-route-id="@Pages.GlobalSettings.GlobalChat.Chatid">Назад к чату</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

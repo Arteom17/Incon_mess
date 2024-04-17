@@ -1,0 +1,43 @@
+﻿@page
+@model Incon.Pages.Messages.DetailsmessageModel
+
+@{
+    ViewData["Title"] = "Detailsmessage";
+}
+
+<h1>Detailsmessage</h1>
+
+<div>
+    <h4>Communicationobj</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Communicationobj.Creatoraccountidref)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Communicationobj.Creatoraccountidref)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Communicationobj.Text)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Communicationobj.Text)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Communicationobj.Dateofdesign)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Communicationobj.Dateofdesign)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Communicationobj.ChatidrefNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Communicationobj.ChatidrefNavigation.Chatid)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Communicationobj?.Communicationobjid">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

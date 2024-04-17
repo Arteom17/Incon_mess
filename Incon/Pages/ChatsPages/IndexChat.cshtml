@@ -1,0 +1,42 @@
+﻿@page
+@model Incon.Pages.ChatsPages.IndexChat
+
+@{
+    ViewData["Title"] = "Чаты";
+}
+
+<h1>Список чатов</h1>
+
+<p>
+    <a asp-page="/ChatsPages/CreateChat">Создать Новый чат</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Название
+            </th>
+            <th>
+                Дата создания
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Chat) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dateofdesign)
+            </td>
+            <td>
+                    <a asp-page="/ChatsPages/EditChat" asp-route-id="@item.Chatid">Изменить название</a> |
+                    <a asp-page="/ChatsPages/DetailsChat" asp-route-id="@item.Chatid">Перейти в чат</a> |
+                    <a asp-page="/ChatsPages/Deletefromchat" asp-route-id="@item.Chatid">Покинуть чат</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

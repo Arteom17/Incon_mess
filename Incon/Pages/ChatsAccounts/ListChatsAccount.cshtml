@@ -1,0 +1,44 @@
+﻿@page
+@model Incon.Pages.ChatsAccounts.ListChatsAccountModel
+
+@{
+    ViewData["Title"] = "Список участников";
+}
+
+<h1>Список участников</h1>
+
+<p>
+    <a asp-page="/ChatsAccounts/AddUser">Добавить нового участника</a>  | 
+    <a href="@Url.Page("/ChatsPages/DetailsChat","", new{id=Pages.GlobalSettings.GlobalChat.Chatid})">Назад к чату</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Имя
+            </th>
+            <th>
+                Ид
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Account) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Visid)
+            </td>
+            <td>
+                    @if (item.Accountid != Pages.GlobalSettings.Globalaccount.Accountid)
+                    {
+                        <a href="@Url.Page("/ChatsAccounts/DetailsAccount","",new{id=item.Accountid})">Об Участнике</a>
+                    }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

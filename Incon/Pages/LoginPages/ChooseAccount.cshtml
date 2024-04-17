@@ -1,0 +1,45 @@
+﻿@page
+@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+@model Incon.Pages.LoginPage.ChooseAccountModel
+
+@{
+    ViewData["Title"] = "Выбор аккаунта";
+}
+
+<h1>Выбор аккаунта</h1>
+
+<p>
+    <a asp-page="/RegPages/CreateAccount">Добавить аккаунт</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Имя
+            </th>
+            <th>
+                ИД
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+   
+@foreach (var item in Model.Account)
+{
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Visid)
+            </td>
+            <td>
+                <a href="@Url.Page("/RegPages/EditAccount",new{id=item.Accountid})">Настройка</a> |
+                <a href="@Url.Page("ChooseAccount","Choose", new{id = item.Accountid})">Выбрать</a>
+            </td>
+        </tr>
+}
+
+    </tbody>
+</table>
